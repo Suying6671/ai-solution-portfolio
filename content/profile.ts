@@ -1,0 +1,249 @@
+export type EvidenceMetric = {
+  value: string;
+  label: string;
+};
+
+export type WorkflowNode = {
+  title: string;
+  detail?: string;
+};
+
+export type CaseStudy = {
+  id: string;
+  category: string;
+  title: string;
+  summary: string;
+  proof: string;
+  metrics: readonly EvidenceMetric[];
+  overview: string;
+  problem: string;
+  judgment: string;
+  solution: string;
+  workflow: readonly WorkflowNode[];
+  ownership: readonly { title: string; detail: string }[];
+  results: readonly EvidenceMetric[];
+  learning: string;
+};
+
+export type Project = CaseStudy;
+
+export const profile = {
+  name: "万舒畅",
+  englishName: "Shuchang Wan",
+  position: "企业 AI 解决方案｜AI 产品｜FDE",
+  status: "正在寻找企业 AI / Agent 相关机会",
+  location: "上海",
+  availability: "1—2 月内到岗",
+  headline: "把复杂业务变成可交付的 AI 能力",
+  headlineEnglish: "Turning complex business needs into deployable AI capabilities.",
+  intro: "将复杂、模糊的企业业务需求，转化为可落地、可交付、可复制的 AI 产品与解决方案。",
+  introDetail: "覆盖需求发现、Agent / Workflow、POC、客户交付与规模化复用。",
+  contact: {
+    email: "shuchangfr@163.com",
+    wechat: "wsc02116801",
+    resumeHref: "/wan-shuchang-resume.pdf",
+  },
+  heroMetrics: [
+    { value: "11", label: "核心 AI Skill" },
+    { value: "11", label: "服务客户" },
+    { value: "100h+", label: "累计节省人工时间" },
+  ] satisfies EvidenceMetric[],
+  projects: [
+    {
+      id: "creative-insight-worker",
+      category: "FDE / AGENT / SKILL / SCALE",
+      title: "广告投放素材洞察数字员工",
+      summary:
+        "将素材入库、AI 打标、规范命名、投放数据关联、质量检查、素材分析与报告生成串联成完整流程，并通过 Skill + 客户级配置实现跨客户复用。",
+      proof: "从单客户流程验证，到可服务多客户的广告投放素材洞察解决方案。",
+      metrics: [
+        { value: "7 个", label: "可复用核心 AI Skill" },
+        { value: "80%", label: "电商项目覆盖率" },
+        { value: "5000+", label: "累计处理素材" },
+        { value: "30+ 次", label: "完整技能流程运行" },
+        { value: "60 → 10 分钟", label: "单批素材处理时间" },
+      ],
+      overview:
+        "企业 AI Agent / 广告投放素材数据分析项目，由我负责需求研究、AI 解决方案设计、产品搭建、客户交付与跨客户复用。代表客户包括 Keeta、Anker、华橙与 PUBGM。",
+      problem:
+        "传统流程要经过素材下载、人工整理、逐条打标、统一命名、查询投放数据、素材与广告数据匹配、筛选与人工分析，单次交付约需一个工作日，且规则复杂、容易漏匹配或错匹配，分析方法也依赖个人经验。",
+      judgment:
+        "业务最初提出的是自动完成素材命名，但深入流程后我判断真正的问题是素材、标签、投放数据和分析结论彼此割裂。只优化单点功能无法解决整条交付链路的效率、质量与复用问题。",
+      solution:
+        "将完整任务设计为可重复执行的数字员工流程：客户差异通过 YAML 配置化，核心能力拆分为 Skill，行业分析方法沉淀为标签体系与报告模板，并在数据关联、身份检查和报告交付前设置质量关卡与人工审核。",
+      workflow: [
+        { title: "客户级配置", detail: "平台、标签、报告与质量规则" },
+        { title: "AI 打标与规范命名" },
+        { title: "投放 / 转化数据获取" },
+        { title: "素材身份关联" },
+        { title: "数据质量检查" },
+        { title: "本品 / 竞品素材分析" },
+        { title: "策略报告与人工审核" },
+      ],
+      ownership: [
+        { title: "需求与研究", detail: "梳理优化师工作流、采访专业分析方法、设计标签体系并区分客户共性与差异。" },
+        { title: "方案与产品设计", detail: "设计完整 Workflow、客户级配置体系、7 个 Skill 边界、数据关联逻辑与报告结构。" },
+        { title: "搭建与调试", detail: "从早期 Web 产品演进到 OpenClaw Skill 架构，持续处理 Prompt、Badcase 与数据异常。" },
+        { title: "客户交付与迭代", detail: "完成 Keeta 验证并复制到 Anker、华橙、PUBGM，推动业务团队自主发起流程。" },
+      ],
+      results: [
+        { value: "7 个", label: "核心 AI Skill" },
+        { value: "80%", label: "电商项目覆盖率" },
+        { value: "5000+", label: "累计处理素材" },
+        { value: "30+ 次", label: "完整技能流程运行" },
+        { value: "≥50 个 / 批", label: "单批素材规模" },
+        { value: "60 → 10 分钟", label: "单批素材处理时间" },
+        { value: "83.3%", label: "素材处理时长缩短" },
+      ],
+      learning:
+        "可复用不等于可信任。企业 AI 真正进入日常业务，依赖客户配置、数据质量关卡、异常主动拦截、Human-in-the-loop 与可追踪结果，而不只是模型能否完成一次任务。",
+    },
+    {
+      id: "brand-intelligence",
+      category: "CLIENT SOLUTION",
+      title: "AI 品牌舆情与品牌洞察解决方案",
+      summary: "将多渠道、多语言的品牌数据转化为可持续交付的 AI 监测、分析与洞察方案。",
+      proof: "面向美的、吉利、TCL、司顺等企业客户完成复杂数据交付与持续优化。",
+      metrics: [
+        { value: "6 期", label: "已交付舆情月报" },
+        { value: "约 98%", label: "客户平均内容采纳率" },
+        { value: "2500 元 / 月", label: "司顺持续增值服务" },
+      ],
+      overview:
+        "企业数据智能与品牌舆情解决方案。我负责客户需求沟通、数据流程设计、Prompt、交付管理和结果迭代，服务客户包括美的、吉利、TCL 与司顺。",
+      problem:
+        "PR、Social、多个国家和多种语言的数据高度分散，人工需要完成清洗、分类、风险识别、总结和报告制作；不同客户关注的市场、品牌、事件和输出结构又高度定制。",
+      judgment:
+        "问题不只是报告写得慢，而是数据口径、清洗规则、风险分类和客户关注点缺少可持续运行的交付体系。解决方案必须同时兼顾自动化效率、客户定制和稳定复核。",
+      solution:
+        "以关键词规则和多源数据为输入，经过数据清洗、信息分类、风险与事件识别、AI 分析总结和可视化，最终生成客户报告；不同客户的国家、品牌与输出重点通过配置和模板调整。",
+      workflow: [
+        { title: "Social / PR 数据" },
+        { title: "关键词规则" },
+        { title: "采集与清洗" },
+        { title: "分类与事件识别" },
+        { title: "AI 分析总结" },
+        { title: "可视化与客户报告" },
+      ],
+      ownership: [
+        { title: "需求与研究", detail: "参与客户沟通、工作流采访并识别不同市场和业务团队的真实关注点。" },
+        { title: "方案与产品设计", detail: "撰写 PRD，设计数据预处理、分类、风险识别、Prompt 和报告结构。" },
+        { title: "搭建与调试", detail: "通过 AI 与多维表格优化数据清洗、分析总结和报告制作流程。" },
+        { title: "客户交付与迭代", detail: "持续交付吉利月报、跟踪采纳率，并在司顺场景中识别可收费的增值需求。" },
+      ],
+      results: [
+        { value: "6 期", label: "吉利舆情月报持续交付" },
+        { value: "约 98%", label: "客户平均内容采纳率" },
+        { value: "1.5 周 → 2—3 天", label: "月报制作周期" },
+        { value: "2500 元 / 月", label: "新增持续增值服务" },
+      ],
+      learning:
+        "Client-facing 的价值不只是正确理解需求，更在于从数据和交付现场发现新的 AI 机会，并把一次需求变成稳定、可续费的解决方案。",
+    },
+    {
+      id: "translation-evaluation",
+      category: "LLM EVALUATION",
+      title: "多语言翻译与质量评估 Agent",
+      summary: "通过上下文构建、翻译、回译一致性校验与人工审核，提高小语种长文本质量。",
+      proof: "用真实短剧项目验证上下文、独立评测与 Human-in-the-loop 的质量控制链路。",
+      metrics: [
+        { value: "80 集", label: "真实短剧项目验证" },
+        { value: "90+", label: "客户质量评分" },
+        { value: "80+", label: "客户内部翻译团队评分" },
+      ],
+      overview:
+        "长篇短剧多语言本地化项目。我负责方案设计、翻译质量方法拆解、Prompt 与 Workflow 设计、真实内容测试和客户验证。",
+      problem:
+        "逐句翻译会丢失人物关系、前后剧情和语气，长篇内容的术语与角色表达容易不一致；业务人员又不一定掌握目标小语种，难以快速判断语义偏移。",
+      judgment:
+        "核心问题不是模型是否会翻译，而是系统缺少充分上下文，以及独立于生成过程之外的质量验证机制。因此不能只做一次翻译后直接交付。",
+      solution:
+        "先构建人物、剧情、术语和前后文，再生成目标语言译文；随后通过目标语言到英语再到中文的回译链路，将原始中文与回译中文做语义一致性评估，低一致性内容进入重译或人工审核。",
+      workflow: [
+        { title: "中文原始剧本" },
+        { title: "上下文构建", detail: "人物 / 剧情 / 术语" },
+        { title: "翻译 Agent" },
+        { title: "目标译文" },
+        { title: "英语中转回译" },
+        { title: "语义一致性评估" },
+        { title: "人工审核 / 重译" },
+      ],
+      ownership: [
+        { title: "需求与研究", detail: "拆解客户翻译质量问题，并研究小语种质量验证方法。" },
+        { title: "方案与产品设计", detail: "设计上下文输入、翻译链路、回译路径、语义一致性评估和独立审核机制。" },
+        { title: "搭建与调试", detail: "主导方案并带领实习生完成翻译与审核 Prompt，使用真实剧集持续测试。" },
+        { title: "客户交付与迭代", detail: "实际承接 2 个客户需求，使用真实短剧完成测试与交付。" },
+      ],
+      results: [
+        { value: "80 集", label: "真实短剧项目验证" },
+        { value: "90+", label: "客户质量评分" },
+        { value: "80+", label: "客户内部翻译团队评分" },
+      ],
+      learning:
+        "生成质量不能只由生成模型自己判断。将上下文、独立评测、异常分流与人工审核拆开，才能让不可直接阅读的小语种结果获得更可靠的质量控制。",
+    },
+    {
+      id: "media-insight-platform",
+      category: "AI WEB PRODUCT",
+      title: "AI 媒介流量洞察平台",
+      summary: "将分散的媒介流量查询、分析与洞察过程产品化为可直接使用的 AI Web 产品。",
+      proof: "从专家采访、PRD、Prompt 和 UI 对齐，到高价值客户测试与持续迭代。",
+      metrics: [{ value: "约 15 分钟", label: "生成一份媒介流量洞察报告" }],
+      overview:
+        "AI 数据产品与 Web 产品项目。我负责产品设计、专业方法提炼、PRD、Prompt、UI 对齐和客户测试。",
+      problem:
+        "客户经理和优化师在竞标与复盘时，需要反复查询本品、竞品、国家、渠道、搜索和社媒来源，手动截图、整理、比较和制作报告，过程高频低效且质量依赖个人经验。",
+      judgment:
+        "真正要解决的不是生成一段洞察文字，而是把数据查询、专业分析框架、信息展示和最终报告连接成完整产品，让不同使用者都能稳定得到业务结论。",
+      solution:
+        "采访业务专家并提炼分析方法，先定义交付物结构，再完成 PRD、Prompt、Web 产品信息架构和 UI 对齐，通过高价值客户测试持续调整数据呈现与 AI 洞察。",
+      workflow: [
+        { title: "业务专家采访" },
+        { title: "分析方法提炼" },
+        { title: "交付物结构" },
+        { title: "PRD 与 Prompt" },
+        { title: "Web 信息架构与 UI" },
+        { title: "客户测试与迭代" },
+      ],
+      ownership: [
+        { title: "需求与研究", detail: "采访业务专家并拆解竞标、复盘中的高频数据分析任务。" },
+        { title: "方案与产品设计", detail: "提炼专业分析方法，撰写 PRD，定义信息架构、报告结构和 Prompt。" },
+        { title: "搭建与调试", detail: "与 UI 和开发对齐输入页、分析页和洞察报告页，持续优化展示逻辑。" },
+        { title: "客户交付与迭代", detail: "组织高价值客户测试，根据使用反馈调整产品结构和洞察质量。" },
+      ],
+      results: [{ value: "约 15 分钟", label: "生成一份媒介流量洞察报告" }],
+      learning:
+        "AI Web 产品的价值来自数据、方法和界面的共同作用。模型负责生成只是其中一环，用户是否能快速理解并采取行动同样决定产品质量。",
+    },
+  ] satisfies CaseStudy[],
+  capabilities: [
+    { number: "01", title: "业务洞察", description: "从真实业务流程中发现 AI 机会。", evidence: "品牌舆情与洞察：客户沟通、流程拆解与商业价值发现。" },
+    { number: "02", title: "方案设计", description: "将模糊业务需求转化为 AI 解决方案。", evidence: "翻译质量 Agent：上下文、Workflow、Evaluation 与人工审核。" },
+    { number: "03", title: "快速搭建", description: "将方案快速做成可验证的 POC。", evidence: "媒介流量洞察平台：专家方法、PRD、Prompt、UI 与客户测试。" },
+    { number: "04", title: "交付与规模化", description: "从一次性交付沉淀成可复用能力。", evidence: "广告投放素材洞察数字员工：配置化、多客户部署与自主使用。" },
+  ],
+  methodSteps: ["客户沟通", "业务流程拆解", "AI 场景发现", "方案设计", "POC / Demo", "评测与交付", "复用与规模化"],
+  deliverySteps: ["客户沟通", "流程拆解", "AI 场景发现", "方案设计", "POC / Demo", "客户汇报", "上线交付", "反馈迭代", "增购 / 规模化复制"],
+  clientGroups: [
+    { title: "数字员工与广告投放场景", clients: "Keeta · Anker · PUBGM", detail: "素材洞察、投放数据关联、质量检查与业务自主使用" },
+    { title: "品牌数据与洞察场景", clients: "美的 · 吉利 · TCL · 司顺", detail: "跨市场舆情、报告自动化、客户定制与增值服务" },
+  ],
+  timeline: [
+    { period: "2024—至今", organization: "蓝色光标 / 蓝瀚互动", role: "AI 产品设计师 / 企业 AI 解决方案", description: "负责 AI 场景发现、解决方案设计、Agent / Workflow 搭建、客户交付与能力复用。", clients: "Keeta · Anker · 美的 · 吉利 · TCL · PUBGM · 司顺" },
+    { period: "2024", organization: "银行证券", role: "AI 产品实习生", description: "参与 To C 投顾 AI Chatbot 建设；智能客服 DAU 稳定约 1000，人工客服介入率下降约 20%。" },
+  ],
+  earlierExperience: ["智安链云 · 行业研究与项目咨询", "麦迪斯顿 · 战略相关工作", "广告 / 内容制作等经历"],
+  education: { organization: "ESCP Business School", degree: "管理学学士", detail: "商业管理 · 数据分析 · 信息系统" },
+  toolkit: [
+    { title: "AI 应用", detail: "LLM · Agent · Skill · Workflow" },
+    { title: "Agent / 自动化", detail: "OpenClaw · Dify · Coze · Aily" },
+    { title: "快速开发", detail: "Vibe Coding · Claude Code · Codex · Python" },
+    { title: "Prompt / 配置", detail: "Prompt · YAML · 结构化输出" },
+    { title: "AI 产品", detail: "PRD · 原型 · UI · 评测 · 用户测试" },
+    { title: "企业解决方案", detail: "需求访谈 · POC · 方案汇报 · 交付 · 客户运营" },
+  ],
+  otherProjects: [
+    { category: "CONTENT WORKFLOW", title: "AI 公关内容生产 Agent", description: "采访 3 个品牌业务团队，将专业写作流程抽象为“框架—提纲—正文—优化”的 AI Workflow。", result: "完成 14 篇真实 PR 稿件测试 · 初版交付效率提升约 50%", tags: ["专家方法抽象", "Prompt", "Workflow", "内容生产"] },
+    { category: "TO C CHATBOT", title: "投顾 AI Chatbot", description: "参与智能客服知识内容建设、线上表现监控和用户反馈迭代，在专业表达与人工兜底之间建立闭环。", result: "DAU 稳定约 1000 · 人工客服介入率下降约 20%", tags: ["Chatbot", "To C", "知识内容", "客服场景"] },
+  ],
+} as const;
