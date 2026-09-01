@@ -43,6 +43,11 @@ test("server-renders the approved recruiting profile", async () => {
   assert.match(html, /80%[^<]*电商项目覆盖率/);
   assert.match(html, /5000\+[^<]*累计处理素材/);
   assert.match(html, /30\+ 次[^<]*完整技能流程运行/);
+  assert.match(html, /90 期[^<]*TCL 舆情日报持续交付/);
+  assert.match(html, /12 期[^<]*美的舆情月报持续交付/);
+  assert.match(html, /10 期[^<]*吉利舆情月报持续交付/);
+  assert.match(html, /6 期[^<]*司顺舆情月报持续交付/);
+  assert.match(html, /1 天 → 30 分钟[^<]*TCL 舆情日报制作周期/);
   assert.doesNotMatch(html, /把复杂业务，变成/);
   assert.match(html, /id="projects"/);
   assert.match(html, /从客户需求到 AI 落地/);

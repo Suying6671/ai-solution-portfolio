@@ -35,6 +35,19 @@ describe("public profile content", () => {
     ]);
   });
 
+  it("uses the latest brand-intelligence delivery evidence", () => {
+    const expectedEvidence = [
+      { value: "90 期", label: "TCL 舆情日报持续交付" },
+      { value: "12 期", label: "美的舆情月报持续交付" },
+      { value: "10 期", label: "吉利舆情月报持续交付" },
+      { value: "6 期", label: "司顺舆情月报持续交付" },
+      { value: "1 天 → 30 分钟", label: "TCL 舆情日报制作周期" },
+    ];
+
+    expect(profile.projects[1].metrics).toEqual(expectedEvidence);
+    expect(profile.projects[1].results).toEqual(expectedEvidence);
+  });
+
   it("uses the approved hero copy", () => {
     expect(profile.headline).toBe("把复杂业务变成可交付的 AI 能力");
     expect(profile.headlineEnglish).toBe(
