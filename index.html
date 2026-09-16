@@ -216,6 +216,12 @@ if(about&&!document.getElementById('production-archive')){
 }
 set('.about .section-tag','05 / BUILDER PROFILE');
 set('.contact-label','06 / OPEN A CONVERSATION');
+const production=document.getElementById('production-archive');
+if(production){
+ const cards=production.querySelectorAll('.production-card');
+ if(cards[0]&&cards[1]){const first=cards[0],second=cards[1];const firstHtml=first.innerHTML,secondHtml=second.innerHTML;first.innerHTML=secondHtml;second.innerHTML=firstHtml;setIn(first,'.index','[01]');setIn(second,'.index','[02]');}
+ const title=production.querySelectorAll('.production-card h3')[0];if(title)title.innerHTML='万豪旅享家<br>《食厨啖饭》第 4 集《跨粤》';
+}
 })();
 
 </script>
